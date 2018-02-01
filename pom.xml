@@ -30,7 +30,7 @@
                             <classifier>${jcuda.os}-${jcuda.arch}</classifier>
                             <includes>
                                 <include>lib/*JCudpp*</include>
-				                <include>lib/*cudpp*</include>
+				                <include>lib/${jcuda.os}/${jcuda.arch}/*cudpp*</include>
                             </includes>
                         </configuration>
                     </execution>

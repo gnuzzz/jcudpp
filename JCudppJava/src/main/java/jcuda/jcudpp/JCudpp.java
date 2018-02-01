@@ -60,6 +60,7 @@
 
 package jcuda.jcudpp;
 import jcuda.*;
+import jcuda.runtime.JCuda;
 
 /**
  * Java bindings for the public interface of CUDPP, the CUDA Data 
@@ -178,7 +179,9 @@ public class JCudpp
     {
         if (!initialized)
         {
-            LibUtils.loadLibrary("JCudpp");
+            String libraryBaseName = "JCudpp-" + JCuda.getJCudaVersion();
+            String libraryName = LibUtils.createPlatformLibraryName(libraryBaseName);
+            LibUtils.loadLibrary(libraryName, "cudpp64", "cudpp_hash64");
             initialized = true;
         }
     }
